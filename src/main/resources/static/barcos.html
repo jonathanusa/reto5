@@ -1,0 +1,59 @@
+<hr>
+<table>
+    <tr>
+        <th><label class="main_headers">Formulario de Registro</label></th>
+        <th><label class="main_headers">Detalles Elemento Seleccionado</label></th>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <label style="visibility: hidden;" disabled>ID:</label><br>
+                <input type="number" style="visibility: hidden;" disabled></input>
+                <label>NAME:</label><br>
+                <input type="text" id="name" placeholder="name"><br>
+                <label>BRAND:</label><br>
+                <input type="text" id="brand" placeholder="brand"><br>
+                <label>YEAR:</label><br>
+                <input type="number" id="year" placeholder="year"><br>
+                <label>DESCRIPTION:</label><br>
+                <input type="text" id="description" placeholder="description"><br>
+                <label>CATEGORY:</label><br>
+                <select id="selector"></select>
+                <hr>
+                <button class="btnActions" onclick="postBoat()">Guardar</button>
+            </div>
+        </td>
+        <td>
+            <div id="update_boat_form">
+                <input class="inp_upd" type="number" id="id_update" placeholder="id" style="visibility: hidden;" disabled>
+                <label>NAME:</label><br>
+                <input class="inp_upd" type="text" id="name_update" placeholder="name" disabled><br>
+                <label>BRAND:</label><br>
+                <input class="inp_upd" type="text" id="brand_update" placeholder="brand" disabled><br>
+                <label>YEAR:</label><br>
+                <input class="inp_upd" type="number" id="year_update" placeholder="year" disabled><br>
+                <label>DESCRIPTION:</label><br>
+                <input class="inp_upd" type="text" id="description_update" placeholder="description" disabled><br>
+                <label>CATEGORY:</label><br>
+                <input class="inp_upd" type="text" id="category_update" placeholder="category" disabled>
+                <hr>
+                <button class="btnActions" id="btnUpdate" onclick="updateBoat()" disabled>Actualizar</button>
+            </div>
+        </td>
+    </tr>
+</table>
+<hr>
+<div>
+    <table id="boatTable" class="style_tables">
+        <tr>
+            <th>NAME</th>
+            <th>BRAND</th>
+            <th>YEAR</th>
+            <th>DESCRIPTION</th>
+            <th>CATEGORY</th>
+            <th>DELETE</th>
+        </tr>
+    </table>
+</div>
+<hr>
+<hr>

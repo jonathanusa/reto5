@@ -1,0 +1,50 @@
+<hr>
+<table>
+    <tr>
+        <th><label class="main_headers">Formulario de Registro</label></th>
+        <th><label class="main_headers">Detalles Elemento Seleccionado</label></th>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <label style="visibility: hidden;" disabled>ID:</label><br>
+                <label>MESSAGE TEXT:</label><br>
+                <input type="text" id="messageText" placeholder="messageText" required><br>
+                <label>BOATS:</label><br>
+                <select id="selector"></select required><br>
+                <label>CLIENTS:</label><br>
+                <select id="selector_clients" required></select>
+                <hr>
+                <button class="btnActions" onclick="postMessage()">Guardar</button>
+            </div>
+        </td>
+        <td>
+            <div id="update_message_form">
+                <input class="inp_upd" type="number" id="id_update" placeholder="id" style="visibility: hidden;" disabled>
+                <label>MESSAGE TEXT:</label><br>
+                <input class="inp_upd" type="text" id="messageText_update" placeholder="messageText" disabled><br>
+
+                <label>BOAT:</label><br>
+                <input class="inp_upd" type="text" id="boat_update" placeholder="boat" disabled><br>
+
+                <label>CLIENT:</label><br>
+                <input class="inp_upd" type="text" id="client_update" placeholder="client" disabled><br>
+                <hr>
+                <button class="btnActions" id="btnUpdate" onclick="updateMessage()" disabled>Actualizar</button>
+            </div>
+        </td>
+    </tr>
+</table>
+<hr>
+<div>
+    <table id="messageTable" class="style_tables">
+        <tr>
+            <th>MESSAGE</th>
+            <th>BOATS</th>
+            <th>CLIENTS</th>
+            <th>DELETE</th>
+        </tr>
+    </table>
+</div>
+<hr>
+<hr>

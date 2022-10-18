@@ -1,0 +1,83 @@
+<hr>
+<table>
+    <tr>
+        <th><label class="main_headers">Formulario de Registro</label></th>
+        <th><label class="main_headers">Detalles Elemento Seleccionado</label></th>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <label style="visibility: hidden;" disabled>ID:</label><br>
+                <label>DEVOLUTION DATE</label><br>
+                <input class="inp_upd" type="date" id="devolution_date" placeholder="devolution_date"><br>
+                <label>BOATS:</label><br>
+                <select id="selector_boats"></select><br>
+                <label>CLIENTS:</label><br>
+                <select id="selector_clients"></select><br>
+                <label>SCORE:</label><br>
+                <select id="selector_score">
+                    <option value="N/A" selected>Seleccione para evaluar</option>
+                    <option value="1">Score 0</option>
+                    <option value="2">Score 1</option>
+                    <option value="3">Score 2</option>
+                    <option value="4">Score 3</option>
+                    <option value="5">Score 4</option>
+                    <option value="6">Score 5</option>
+                </select>
+                <hr>
+                <button class="btnActions" onclick="postReservation()">Guardar</button>
+            </div>
+        </td>
+        <td>
+            <div id="update_reservation_form">
+                <input class="inp_upd" type="number" id="id_update" placeholder="id" style="visibility: hidden;" disabled>
+                <label>DEVOLUTION DATE</label><br>
+                <input class="inp_upd" type="date" id="devolution_date_update" placeholder="devolution_date" disabled><br>
+
+                <label>BOAT:</label><br>
+                <input class="inp_upd" type="text" id="boat_update" placeholder="boat" disabled><br>
+
+                <label>CLIENT:</label><br>
+                <input class="inp_upd" type="text" id="client_update" placeholder="client" disabled><br>
+
+                <label>SCORE:</label><br>
+                <select id="selector_score_update" disabled>
+                    <option value="N/A" selected>Seleccione para evaluar</option>
+                    <option value="1">Score 0</option>
+                    <option value="2">Score 1</option>
+                    <option value="3">Score 2</option>
+                    <option value="4">Score 3</option>
+                    <option value="5">Score 4</option>
+                    <option value="6">Score 5</option>
+                </select>
+                <br>
+                <label>STATUS:</label><br>
+                <select id="selector_status_update" disabled>
+                    <option value="selection_none" selected>Seleccione para evaluar</option>
+                    <option value="programado">Programado</option>
+                    <option value="cancelado">Cancelado</option>
+                    <option value="realizado">Realizado</option>
+                </select>
+                <hr>
+                <button class="btnActions" id="btnUpdate" onclick="updateReservation()" disabled>Actualizar</button>
+            </div>
+        </td>
+    </tr>
+</table>
+<hr>
+<div>
+    <table id="reservationTable" class="style_tables">
+        <tr>
+            <th>ID</th>
+            <th>START DATE</th>
+            <th>DEVOLUTION DATE</th>
+            <th>STATUS</th>
+            <th>BOAT</th>
+            <th>CLIENT</th>
+            <th>SCORE</th>
+            <th>DELETE</th>
+        </tr>
+    </table>
+</div>
+<hr>
+<hr>
