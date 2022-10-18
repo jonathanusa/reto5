@@ -247,6 +247,44 @@ function updateReportTable(  ){
             console.log('Petición completada');
         }
     });
+
+    // clients report
+    $.ajax({
+// #
+        url : URL_SERVER + "/api/Reservation/" + "report-clients",
+        type : 'GET',
+        dataType : 'JSON',
+        success : function(respuesta) {
+            alert('Lectura de la tabla realizada con éxito');
+
+            console.log(respuesta)
+
+            let myTable =  '<tr>\
+                                <th>TOTAL</th>\
+                                <th>CLIENT</th>\
+                            </tr>';
+            // #
+            $("#clientReportTable").empty();
+            for (let index = 0; index < respuesta.length; index++) {
+                
+                myTable += "<tr>";
+                myTable += "<td>" + respuesta[index].total + "</td>";
+                myTable += "<td>" + respuesta[index].client.name + "</td>";
+                myTable += "</tr>";    
+            }
+            
+            // #
+            $("#clientReportTable").append(myTable);
+            
+
+        },
+        error : function(xhr, status) {
+            alert('Ha sucedido un problema en lectura de la tabla');
+        },
+        complete : function(xhr, status) {
+            console.log('Petición completada');
+        }
+    });
 }
 
 function fillScoreTable(index){
