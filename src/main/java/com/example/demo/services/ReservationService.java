@@ -30,7 +30,6 @@ public class ReservationService {
     public Reservation save( Reservation reservation ) { 
         
         if (reservation.getIdReservation()== null) {
-            reservation.setStatus("created");
             
             if (reservation.getStartDate()== null){
                 Date current_time = new Date();
