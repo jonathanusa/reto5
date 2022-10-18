@@ -95,6 +95,8 @@ function direccionarPagina(id_pag){
         }
         else if( page_name[id_pag] == "reservaciones.html" ){
 
+            updateReportTable();
+
             $.ajax({
         // #
                 url : URL_SERVER + "/api/Reservation/" + "all",
@@ -210,6 +212,41 @@ function direccionarPagina(id_pag){
             $("#pes_"+index).attr({'style':'background-color: #333'})
         }        
     }   
+}
+
+function updateReportTable(  ){
+
+    $.ajax({
+// #
+        url : URL_SERVER + "/api/Reservation/" + "report-status",
+        type : 'GET',
+        dataType : 'JSON',
+        success : function(respuesta) {
+            alert('Lectura de la tabla realizada con éxito');
+
+            let myTable =  '<tr>\
+                                <th>COMPLETED</th>\
+                                <th>CANCELLED</th>\
+                            </tr>';
+            // #
+            $("#reportTable").empty();
+
+            myTable += "<tr>";
+            myTable += "<td>" + respuesta.completed + "</td>";
+            myTable += "<td>" + respuesta.cancelled + "</td>";
+            myTable += "</tr>";
+            // #
+            $("#reportTable").append(myTable);
+            
+
+        },
+        error : function(xhr, status) {
+            alert('Ha sucedido un problema en lectura de la tabla');
+        },
+        complete : function(xhr, status) {
+            console.log('Petición completada');
+        }
+    });
 }
 
 function fillScoreTable(index){
@@ -1023,6 +1060,7 @@ function getReservation(){
             alert('Lectura de la tabla realizada con éxito');
             const listaOrdenada = respuesta.sort(function(a, b){return a.idReservation - b.idReservation});
 // #        
+            updateReportTable();
             listarReservaciones(listaOrdenada);
         },
         error : function(xhr, status) {
@@ -1041,6 +1079,7 @@ function getReservationId( id ){
         type : 'GET',
         dataType : 'JSON',
         success : function(respuesta) {
+            updateReportTable();
 
             alert('Lectura del elemento realizada con exito');
 
@@ -1149,7 +1188,8 @@ function postReservation(){
         contentType: 'application/json',
 
         success : function(result,status,xhr) {
-// #
+// #    
+            updateReportTable();
             getReservation();
             alert('Guardado exitoso de registro en la tabla');
         },
@@ -1183,6 +1223,7 @@ function updateReservation(){
         contentType: 'application/json',
 
         success : function(result,status,xhr) {
+            updateReportTable();
             $("#id_update").val("");
 
             $("#devolution_date_update").val("");$('#devolution_date_update').prop('disabled', true);
@@ -1215,6 +1256,7 @@ function deleteReservation( id ){
         contentType: 'application/json',
         success : function(respuesta) {
             alert('Eliminación exitosa de registro')
+            updateReportTable();
             getReservation();
         },
         error : function(xhr, status) {
